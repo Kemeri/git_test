@@ -7,7 +7,7 @@ import java.lang.reflect.*;
 
 class Marker {
 	// аннотировать метод с помощью маркера
-	// Обратить внимание на обязательность скобок {}
+// Обратить внимание на обязательность скобок {}
 	@MyMarker
 	public static void myMeth(){
 		Marker ob = new Marker();
