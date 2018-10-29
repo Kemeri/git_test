@@ -10,18 +10,28 @@ import java.util.ArrayList;
 @Retention(RetentionPolicy.RUNTIME)
 @interface MyMarkerNew {}
 
+@Retention(RetentionPolicy.RUNTIME)
+@interface BlaBlaMarker {}
+
 class Marker2 {
 
 	@MyMarker
 	@MyMarkerNew
+	@BlaBlaMarker
 	public void newMethod1(){}
 	
+	@BlaBlaMarker
 	@MyMarker
 	public void newMethod2(){}
 	
+	@BlaBlaMarker
 	@MyMarkerNew
 	public void newMethod3(){}
 	
+	@BlaBlaMarker
+	public void newMethod4(){}
+	
+	@MyMarker
 	@MyMarkerNew
 	public void newMethod4(){}
 }
@@ -55,25 +65,27 @@ class Marker {
 		String name;
 		
 		try {
+			ArrayList<Class> annotations = new ArrayList<>();
+			annotations.add(MyMarker.class);
+			annotations.add(MyMarkerNew.class);
+			annotations.add(BlaBlaMarker.class);
+			
 			ArrayList<Method> t =  new ArrayList<>();
 			Class c = m2.getClass();
 			t.add(c.getMethod("newMethod1"));
 			t.add(c.getMethod("newMethod2"));
 			t.add(c.getMethod("newMethod3"));
 			t.add(c.getMethod("newMethod4"));
+			t.add(c.getMethod("newMethod5"));
 			
 			// определить наличие аннотаций
 			for(Method m : t){
 				name = m.getName();
-				if(m.isAnnotationPresent(MyMarker.class))
-					System.out.println("\nАннотация-маркер MyMarker в методе " + name + " присутствует.");
-				else
-					System.out.println("\nАннотация-маркер MyMarker в методе " + name + " отсутствует.");
-					
-				if(m.isAnnotationPresent(MyMarkerNew.class))
-					System.out.println("\nАннотация-маркер MyMarkerNew в методе " + name + " присутствует.");
-				else
-					System.out.println("\nАннотация-маркер MyMarkerNew в методе " + name + " отсутствует.");
+				for(Class s : annotations)
+					if(m.isAnnotationPresent(s))
+						System.out.println("\nАннотация-маркер" + s.getName() + " в методе " + name + " присутствует.");
+					else
+						System.out.println("\nАннотация-маркер" + s.getName() + " в методе " + name + " отсутствует.");
 				}
 		} catch (Exception e){
 			System.out.println("Выброшено исключение: " + e);
