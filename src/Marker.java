@@ -35,9 +35,9 @@ class Marker {
 			
 			// определить наличие аннотации
 			if(m.isAnnotationPresent(MyMarker.class))
-				System.out.println("Аннотация-маркер MyMarker присутствует.");
+				System.out.println("\nАннотация-маркер MyMarker присутствует.");
 			else
-				System.out.println("Аннотация-маркер MyMarker отсутствует.");
+				System.out.println("\nАннотация-маркер MyMarker отсутствует.");
 		} catch (NoSuchMethodException e){
 			System.out.println("Метод не найден.");
 		}
