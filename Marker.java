@@ -4,6 +4,20 @@ import java.lang.reflect.*;
 // Аннотация-маркер
 @Retention(RetentionPolicy.RUNTIME)
 @interface MyMarker {}
+@interface MyMarkerNew {}
+
+class Marker2 {
+
+	@MyMarker
+	@MyMarkerNew
+	public void newMethod(){}
+	
+	@MyMarker
+	public void newMethod2(){}
+	
+	@MyMarkerNew
+	public void newMethod3(){}
+}
 
 class Marker {
 	// аннотировать метод с помощью маркера
@@ -27,6 +41,7 @@ class Marker {
 	
 	public static void main(String[] args){
 		myMeth();
+		Marker2 m2 = new Marker2();
 	}
 }
 /*
