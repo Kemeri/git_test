@@ -60,8 +60,9 @@ class Marker {
 				else
 					System.out.println("Аннотация-маркер MyMarkerNew в методе " + name + " отсутствует.");
 				}
-		} catch (NoSuchMethodException e){
-			System.out.println("Метод не найден.");
+		} catch (Exception e){
+			System.out.println("Выброшено исключение: " + e);
+			e.printStackTrace();
 		}
 	}
 }
