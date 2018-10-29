@@ -21,6 +21,9 @@ class Marker2 {
 	
 	@MyMarkerNew
 	public void newMethod3(){}
+	
+	@MyMarkerNew
+	public void newMethod4(){}
 }
 
 class Marker {
@@ -57,6 +60,7 @@ class Marker {
 			t.add(c.getMethod("newMethod1"));
 			t.add(c.getMethod("newMethod2"));
 			t.add(c.getMethod("newMethod3"));
+			t.add(c.getMethod("newMethod4"));
 			
 			// определить наличие аннотаций
 			for(Method m : t){
