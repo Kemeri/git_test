@@ -42,7 +42,10 @@ class Marker {
 	}
 	
 	public static void main(String[] args){
+		System.out.println("В классе Marker: ");
 		myMeth();
+		
+		System.out.println("\nВ классе Marker2: ");
 		Marker2 m2 = new Marker2();
 		String name;
 		
@@ -57,14 +60,14 @@ class Marker {
 			for(Method m : t){
 				name = m.getName();
 				if(m.isAnnotationPresent(MyMarker.class))
-					System.out.println("Аннотация-маркер MyMarker в методе " + name + " присутствует.");
+					System.out.println("\nАннотация-маркер MyMarker в методе " + name + " присутствует.");
 				else
-					System.out.println("Аннотация-маркер MyMarker в методе " + name + " отсутствует.");
+					System.out.println("\nАннотация-маркер MyMarker в методе " + name + " отсутствует.");
 					
 				if(m.isAnnotationPresent(MyMarkerNew.class))
-					System.out.println("Аннотация-маркер MyMarkerNew в методе " + name + " присутствует.");
+					System.out.println("\nАннотация-маркер MyMarkerNew в методе " + name + " присутствует.");
 				else
-					System.out.println("Аннотация-маркер MyMarkerNew в методе " + name + " отсутствует.");
+					System.out.println("\nАннотация-маркер MyMarkerNew в методе " + name + " отсутствует.");
 				}
 		} catch (Exception e){
 			System.out.println("Выброшено исключение: " + e);
