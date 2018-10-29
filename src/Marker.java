@@ -33,7 +33,7 @@ class Marker2 {
 	
 	@MyMarker
 	@MyMarkerNew
-	public void newMethod4(){}
+	public void newMethod5(){}
 }
 
 class Marker {
