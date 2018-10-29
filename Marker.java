@@ -1,5 +1,7 @@
 import java.lang.annotation.*;
+import java.lang.Class;
 import java.lang.reflect.*;
+import java.util.ArrayList;
 
 // јннотаци€-маркер
 @Retention(RetentionPolicy.RUNTIME)
@@ -10,7 +12,7 @@ class Marker2 {
 
 	@MyMarker
 	@MyMarkerNew
-	public void newMethod(){}
+	public void newMethod1(){}
 	
 	@MyMarker
 	public void newMethod2(){}
@@ -45,7 +47,11 @@ class Marker {
 		String name;
 		
 		try {
-			Method[] t = ob.getClass().getMethods();
+			ArrayList<Method> t =  new ArrayList<>();
+			Class c = m2.getClass();
+			t.add(c.getMethod("newMethod1"));
+			t.add(c.getMethod("newMethod2"));
+			t.add(c.getMethod("newMethod3"));
 			
 			// определить наличие аннотаций
 			for(Method m : t){
