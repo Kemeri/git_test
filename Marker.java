@@ -6,6 +6,8 @@ import java.util.ArrayList;
 // Аннотация-маркер
 @Retention(RetentionPolicy.RUNTIME)
 @interface MyMarker {}
+
+@Retention(RetentionPolicy.RUNTIME)
 @interface MyMarkerNew {}
 
 class Marker2 {
