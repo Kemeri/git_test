@@ -42,6 +42,27 @@ class Marker {
 	public static void main(String[] args){
 		myMeth();
 		Marker2 m2 = new Marker2();
+		String name;
+		
+		try {
+			Method[] t = ob.getClass().getMethods();
+			
+			// определить наличие аннотаций
+			for(Method m : t){
+				name = m.getName();
+				if(m.isAnnotationPresent(MyMarker.class))
+					System.out.println("Аннотация-маркер MyMarker в методе " + name + " присутствует.");
+				else
+					System.out.println("Аннотация-маркер MyMarker в методе " + name + " отсутствует.");
+					
+				if(m.isAnnotationPresent(MyMarkerNew.class))
+					System.out.println("Аннотация-маркер MyMarkerNew в методе " + name + " присутствует.");
+				else
+					System.out.println("Аннотация-маркер MyMarkerNew в методе " + name + " отсутствует.");
+				}
+		} catch (NoSuchMethodException e){
+			System.out.println("Метод не найден.");
+		}
 	}
 }
 /*
